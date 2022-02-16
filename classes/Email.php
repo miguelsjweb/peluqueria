@@ -23,7 +23,7 @@ class Email{
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail -> SMTPAuth = true ;
-        $mail -> Port = 587;
+        $mail -> Port = 465;
         $mail -> Username = 'miguelserranj@gmail.com';
         $mail -> Password = 'Mserran7';
 
