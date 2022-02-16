@@ -36,7 +36,7 @@ class Email{
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->email . "</strong>. Gracias por unerte a nosotros. Para continuar, confirma tu cuenta en el siguiente enlance.</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";
+        $contenido .= "<p>Presiona aquí: <a href='http://aqueous-falls-22498.herokuapp.com/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";
         $contenido .= "<p>Si no fuiste tú , puedes ignorar el mensaje.</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
@@ -64,7 +64,7 @@ class Email{
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has solicitado recuperar tu contraseña. Pulsa en el siguiente enlace  </p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/recuperar?token=" . $this->token . "'>Reestablecer Contraseña</a>";
+        $contenido .= "<p>Presiona aquí: <a href='http://aqueous-falls-22498.herokuapp.com/recuperar?token=" . $this->token . "'>Reestablecer Contraseña</a>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje.</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
