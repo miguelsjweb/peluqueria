@@ -3,9 +3,6 @@
 namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
 class Email{
 
     public $email;
@@ -27,7 +24,7 @@ class Email{
         $mail -> SMTPAuth = true ;
         $mail -> Port = 587;
         $mail -> Username = 'miguelserranj@gmail.com';
-        $mail -> Password = 'Mserran7';
+        $mail -> Password = 'rwwzxsxzyphknpyc';
 
         $mail->setFrom('miguelserranj@gmail.com');
         $mail->addAddress($_POST['email']);
@@ -55,7 +52,7 @@ class Email{
         $mail -> SMTPAuth = true ;
         $mail -> Port = 587;
         $mail -> Username = 'miguelserranj@gmail.com';
-        $mail -> Password = 'Mserran7';
+        $mail -> Password = 'rwwzxsxzyphknpyc';
 
         $mail->setFrom('miguelserranj@gmail.com');
         $mail->addAddress($_POST['email']);
