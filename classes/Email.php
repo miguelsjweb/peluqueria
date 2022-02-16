@@ -4,7 +4,7 @@ namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP.php;
+use PHPMailer\PHPMailer\SMTP;
 
 class Email{
 
