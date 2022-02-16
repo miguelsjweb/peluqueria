@@ -36,7 +36,7 @@ class Email{
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->email . "</strong>. Gracias por unerte a nosotros. Para continuar, confirma tu cuenta en el siguiente enlance.</p>";
-        $contenido .= "<p>Presiona aquí: <a href='https://aqueous-falls-22498.herokuapp.com/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";
+        $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";
         $contenido .= "<p>Si no fuiste tú , puedes ignorar el mensaje.</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
