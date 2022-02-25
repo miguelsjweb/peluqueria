@@ -46,6 +46,7 @@ include_once __DIR__ . '/../templates/barra.php';
                 <input
                     id="hora"
                     type="time"
+                    step="30"
                 />
             </div>
             <input type="hidden" id="id" value="<?php echo $id; ?>">
