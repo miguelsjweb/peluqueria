@@ -31,12 +31,12 @@ class Email{
         $mail -> Subject = 'Confirma tu cuenta';
 
         //Set HTML
-        $mail -> isHTML(TRUE);
-        $mail -> CharSet = 'UTF-8';
+        $mail ->isHTML(TRUE);
+        $mail ->CharSet = 'UTF-8';
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->email . "</strong>. Gracias por unerte a nosotros. Para continuar, confirma tu cuenta en el siguiente enlance.</p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://" . $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";
+        $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=".$this->token."'>Confirmar Cuenta</a> </p>";
         $contenido .= "<p>Si no fuiste tú , puedes ignorar el mensaje.</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
@@ -64,7 +64,7 @@ class Email{
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has solicitado recuperar tu contraseña. Pulsa en el siguiente enlace  </p>";
-        $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=".$this->token."'>Confirmar Cuenta</a> </p>";
+        $contenido .= "<p>Presiona aquí: <a href='http://" . $_SERVER["HTTP_HOST"] . "/recuperar?token=" . $this->token . "'>Reestablecer Contraseña</a>";
         $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje.</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
