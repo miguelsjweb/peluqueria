@@ -56,6 +56,9 @@ class Usuario extends ActiveRecord {
         if(strlen($this->password) < 6){
             self::$alertas['error'][] = 'La contraseña debe tener 6 carácteres como mínimo';
         }
+        if(!$this->telefono){
+            self::$alertas['error'][] = 'El telefono es obligatorio';
+        }
 
 
 
