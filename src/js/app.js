@@ -368,17 +368,25 @@ async function reservarCita() {
             exito();
         }
 
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
         function exito(){
-            Swal.fire({
+            Toast.fire({
                 icon: 'success',
-                title: 'Cita Creada',
-                text: 'La cita fue reservada correctamente',
-                button: 'OK'
+                title: 'La cita fue creada correctamente.'
                 }).then(()=> {
-                    setTimeout(() =>{
-                        window.location.reload();
-                    },3000);
-                 })
+                    window.location.reload();
+                })
             }
         }catch (error) {
         Swal.fire({
