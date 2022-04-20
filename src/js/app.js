@@ -352,6 +352,18 @@ async function reservarCita() {
     datos.append('hora', hora);
     datos.append('servicios', idServicios);
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
     //console.log([...datos]);
     try {
         //Petición hacia la api
@@ -368,18 +380,6 @@ async function reservarCita() {
             exito();
         }
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-
         function exito(){
             Toast.fire({
                 icon: 'success',
@@ -388,6 +388,7 @@ async function reservarCita() {
                     window.location.reload();
                 })
             }
+            
         }catch (error) {
         Swal.fire({
             icon: 'error',
