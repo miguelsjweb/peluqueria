@@ -72,7 +72,7 @@ include_once __DIR__ . '/../templates/barra.php';
 
 <?php 
     $script = "
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js></script>
+        <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src='build/js/app.js'></script>
     ";
 ?>
