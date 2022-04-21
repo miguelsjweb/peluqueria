@@ -364,6 +364,8 @@ async function reservarCita() {
         }
     })
 
+    
+
     //console.log([...datos]);
     try {
         //Petición hacia la api
@@ -379,17 +381,7 @@ async function reservarCita() {
         if(resultado.resultado){
             exito();
         }
-
-        function exito(){
-            Toast.fire({
-                icon: 'success',
-                title: 'La cita fue creada correctamente.'
-                }).then(()=> {
-                    window.location.reload();
-                })
-            }
-            
-        }catch (error) {
+    }catch (error) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -397,4 +389,14 @@ async function reservarCita() {
         })
         console.log(error);
     }
-}
+
+    function exito(){
+        Toast.fire({
+            icon: 'success',
+            title: 'La cita fue creada correctamente.'
+            }).then(()=> {
+                window.location.reload();
+            })
+        }
+        
+    }
