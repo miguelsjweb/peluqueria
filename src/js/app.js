@@ -387,7 +387,7 @@ function exito() {
            
     Toast.fire({
     icon: 'success',
-    title: 'La cita fue creada correctamente.'
+    title: 'La cita fue reservada correctamente.'
     }).then(()=> {
         window.location.reload();
     })
