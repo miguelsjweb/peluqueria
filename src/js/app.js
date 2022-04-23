@@ -12,7 +12,17 @@ const cita = {
     servicios: []
 }
 
-
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
 
 document.addEventListener('DOMContentLoaded', function () {
     iniciarApp();
@@ -261,8 +271,6 @@ function mostrarResumen() {
         servicios
     } = cita;
 
-
-
     //Heading para servicios y resumen
     const headingServicios = document.createElement('H3');
     headingServicios.textContent = 'Resumen de servicios';
@@ -345,26 +353,11 @@ async function reservarCita() {
     const idServicios = servicios.map(servicio => servicio.id);
     //console.log(idServicios);
 
-
     const datos = new FormData();
     datos.append('usuarioId', id);
     datos.append('fecha', fecha);
     datos.append('hora', hora);
     datos.append('servicios', idServicios);
-
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
-
-    
 
     //console.log([...datos]);
     try {
@@ -378,23 +371,24 @@ async function reservarCita() {
         const resultado = await respuesta.json();
         console.log(resultado);
 
-        if(resultado.resultado) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Cita Creada',
-                text: 'Tu cita fue creada correctamente',
-                button: 'OK'
-            }).then( () => {
-                setTimeout(() => {
-                    window.location.reload();
-                }, 3000);
-            })
-        }
+        exito();    
+
     } catch (error) {
+        console.log(error);
         Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'Hubo un error al guardar la cita'
         })
     }
+}
+
+function exito() {
+           
+    Toast.fire({
+    icon: 'success',
+    title: 'La cita fue creada correctamente.'
+    }).then(()=> {
+        window.location.reload();
+    })
 }
